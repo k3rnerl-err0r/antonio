@@ -12,5 +12,12 @@
         "Antonio Quintero-Felizzola",
         "Antonio",
         "antonioqfel"
-    ]
+    ],
+    "license": "UNLICENSED",
+    "repository": "k3rnerl-err0r/antonio",
+    "author": {
+        "name": "Antonio Quintero-Felizzola",
+        "email": "antonio.qfel@gmail.com",
+        "url": "https://twitter.com/k3rnel_err0r"
+    }
 }
