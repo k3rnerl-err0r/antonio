@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 const pkgJSON = require('./package.json');
 const welcome = require('cli-welcome');
+const chalk = require('chalk');
 
 welcome({
-    title: pkgJSON.name,
+    title: `Antonio Quintero-Felizzola`,
     tagLine: `Hi! Nice to meet you!`,
     description: pkgJSON.description,
     version: pkgJSON.version,
@@ -14,17 +15,29 @@ welcome({
 });
 
 console.log(`
-Antonio Quintero-Felizzola
+${chalk.white(
+    `                   __
+        ..=====.. |==|
+        ||     || |= |
+     _  ||     || |^*| _
+    |=| o=,===,=o |__||=|
+    |_|  _______)~')  |_|
+        [=======]  ()`
+)}
 
-I am a passionate Web Developer in pursuit of JavaScript mastery, 
+${chalk.italic(
+    `I am a passionate Softaware Developer in pursuit of JavaScript mastery, 
 deep curiosity in existing and emerging web technologies. 
 I'm a strong team player with a strong problem-solving addiction.
+Recently fell in love with Rust and I have been doing some systems programming.`
+)}
 
 🥷  TypeScript/JavaScript Ninja
+🦀 Rustacean 
 🐧 Linux Enthusiast
 🎮 Game Developer
 
-🐦 Twitter: https://twitter.com/k3rnel_err0r
-📖 GitHub: https://github.com/k3rnerl-err0r
+${chalk.hex('#1da1f2').bold.inverse(` Twitter `)} ${chalk.dim(`https://twitter.com/k3rnel_err0r`)}
+${chalk.hex('#6cc644').bold.inverse(` GitHub `)} ${chalk.dim(`https://github.com/k3rnerl-err0r`)}
 
 `);
