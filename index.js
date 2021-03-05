@@ -3,12 +3,15 @@ const pkgJSON = require('./package.json');
 const welcome = require('cli-welcome');
 const chalk = require('chalk');
 const logSymbols = require('log-symbols');
+const checkNode = require('cli-check-node');
 
 // Alerts
 const success = chalk.green;
 const info = chalk.blue;
 const warning = chalk.keyword(`orange`);
 const error = chalk.red.bold;
+
+checkNode('10');
 
 welcome({
     title: `Antonio Quintero-Felizzola`,
