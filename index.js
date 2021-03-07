@@ -4,6 +4,7 @@ const welcome = require('cli-welcome');
 const chalk = require('chalk');
 const logSymbols = require('log-symbols');
 const checkNode = require('cli-check-node');
+const unhandled = require('cli-handle-unhandled');
 
 // Alerts
 const success = chalk.green;
@@ -11,32 +12,36 @@ const info = chalk.blue;
 const warning = chalk.keyword(`orange`);
 const error = chalk.red.bold;
 
+unhandled();
+
 checkNode('10');
 
 welcome({
-    title: `Antonio Quintero-Felizzola`,
-    tagLine: `Hi! Nice to meet you!`,
-    description: pkgJSON.description,
-    version: pkgJSON.version,
-    bgColor: `#FADC00`,
-    color: `#000000`,
-    bold: true,
-    clear: true
+	title: `Antonio Quintero-Felizzola`,
+	tagLine: `Hi! Nice to meet you!`,
+	description: pkgJSON.description,
+	version: pkgJSON.version,
+	bgColor: `#FADC00`,
+	color: `#000000`,
+	bold: true,
+	clear: true
 });
+
+Promise.reject(new Error('gonorrea'))
 
 console.log(`
 ${chalk.white(
-    `                   __
-        ..=====.. |==|
-        ||     || |= |
-     _  ||     || |^*| _
-    |=| o=,===,=o |__||=|
-    |_|  _______)~')  |_|
-        [=======]  ()`
+	`                   __
+		..=====.. |==|
+		||     || |= |
+	 _  ||     || |^*| _
+	|=| o=,===,=o |__||=|
+	|_|  _______)~')  |_|
+		[=======]  ()`
 )}
 
 ${chalk.italic(
-    `I am a passionate Softaware Developer in pursuit of JavaScript mastery, 
+	`I am a passionate Softaware Developer in pursuit of JavaScript mastery, 
 deep curiosity in existing and emerging web technologies. 
 I'm a strong team player with a strong problem-solving addiction.
 Recently fell in love with Rust and I have been doing some systems programming.`
