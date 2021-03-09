@@ -1,6 +1,7 @@
 const checkNode = require('cli-check-node');
 const unhandled = require('cli-handle-unhandled');
 const welcome = require('cli-welcome');
+const boxen = require('boxen');
 
 const pkgJSON = require('./../package.json');
 
@@ -21,5 +22,5 @@ module.exports = (minimal, clear) => {
             clear
         });
     
-    minimal && console.log(`Antonio Quintero-Felizzola`);
+    minimal && console.log(boxen(`Antonio Quintero-Felizzola`, { padding: 1 }));
 };
