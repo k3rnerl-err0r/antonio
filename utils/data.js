@@ -32,7 +32,8 @@ const emojiInfo = `
 🐧 Linux Enthusiast
 🎮 Game Developer`;
 
-const ad = `I am working on Node CLI automation`;
+const ad = `${chalk.blue(`
+I am working on Node CLI automation.`)}`;
 
 module.exports = {
     asciiPC,
