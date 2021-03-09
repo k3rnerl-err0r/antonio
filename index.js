@@ -1,49 +1,33 @@
 #!/usr/bin/env node
-const chalk = require('chalk');
+
 const logSymbols = require('log-symbols');
+const alert = require('ke-cli-alerts');
 
-const init = require('./utils/init')
+const init = require('./utils/init');
+const data = require('./utils/data');
+const cli = require('./utils/cli');
+const debug = require('./utils/debug');
 
-// Alerts
-const success = chalk.green;
-const info = chalk.blue;
-const warning = chalk.keyword(`orange`);
-const error = chalk.red.bold;
+const input = cli.input;
+const flags = cli.flags;
 
 (() => {
     init();
-    
-    console.log(`
-    ${chalk.white(
-        `                   __
-            ..=====.. |==|
-            ||     || |= |
-        _  ||     || |^*| _
-        |=| o=,===,=o |__||=|
-        |_|  _______)~')  |_|
-            [=======]  ()`
-    )}
 
-    ${chalk.italic(
-        `I am a passionate Softaware Developer in pursuit of JavaScript mastery, 
-    deep curiosity in existing and emerging web technologies. 
-    I'm a strong team player with a strong problem-solving addiction.
-    Recently fell in love with Rust and I have been doing some systems programming.`
-    )}
+    input.includes('help') && cli.showHelp(0);
 
-    🥷  TypeScript/JavaScript Ninja
-    🦀 Rustacean 
-    🐧 Linux Enthusiast
-    🎮 Game Developer
+    console.log(data.asciiPC);
+    console.log(data.bio)
 
-    ${chalk.hex('#1da1f2').bold.inverse(` Twitter `)} ${chalk.dim(`https://twitter.com/k3rnel_err0r`)}
-    ${chalk.hex('#6cc644').bold.inverse(` GitHub `)} ${chalk.dim(`https://github.com/k3rnerl-err0r`)}
-    `);
+    if (flags.social) {
+        console.log(data.social);
+    }
 
-    console.log(`
-    ${logSymbols.success} ${success(` SUCCESS `)} Thank you for checking my CLI.
-    ${logSymbols.info} ${info(` INFO `)} I am working on Node CLI automation.
-    ${logSymbols.warning} ${warning(` WARNING `)} Please don't copy me. Be yourselg
-    ${logSymbols.error} ${error(` ERROR `)} I'm on vacation. Contact me next week
-    `);
+    if (flags.ad) {
+        alert({type: 'info', msg: data.ad});
+    }
+
+    // Debug info if needed
+    debug(flags.debug, cli);
+
 })();
