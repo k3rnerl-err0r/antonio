@@ -7,20 +7,25 @@ const init = require('./utils/init');
 const data = require('./utils/data');
 const cli = require('./utils/cli');
 const debug = require('./utils/debug');
+const stats = require('./utils/stats');
 
 const input = cli.input;
 const flags = cli.flags;
 
-(() => {
+(async () => {
+    // Init and help
     init(flags.minimal, flags.clear);
-
     input.includes('help') && cli.showHelp(0);
 
-   
+    // Print out the info
     flags.bio && console.log(data.asciiPC);
     flags.bio && console.log(data.bio);
+    flags.bio && console.log(data.emojiInfo);
     flags.social && console.log(data.social);
-    flags.ad && console.log(data.ad);
+    flags.ad && alert({ type: 'info', msg: data.ad });
+
+    // stats
+    await stats();
 
     // Debug info if needed
     debug(flags.debug, cli);
