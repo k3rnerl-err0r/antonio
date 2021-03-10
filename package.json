@@ -1,6 +1,6 @@
 {
     "name": "antonioqfel",
-    "version": "2.7.0",
+    "version": "2.8.0",
     "description": "Get to know Antonio via `npx antonioqfel`",
     "bin": {
         "antonioqfel": "index.js"
