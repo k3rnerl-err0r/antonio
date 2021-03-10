@@ -1,11 +1,5 @@
 const chalk = require('chalk');
 
-// Alerts
-const success = chalk.green;
-const info = chalk.blue.inverse;
-const warning = chalk.keyword(`orange`);
-const error = chalk.red.bold;
-
 const asciiPC = `${chalk.white(`
                 __
      ..=====.. |==|
@@ -32,12 +26,12 @@ const emojiInfo = `
 🐧 Linux Enthusiast
 🎮 Game Developer`;
 
-const ad = `${chalk.blue(`
-I am working on Node CLI automation.`)}`;
+const ad = 'I am working on Node CLI automation.';
 
 module.exports = {
     asciiPC,
     bio,
+    emojiInfo,
     social,
     ad
 };
