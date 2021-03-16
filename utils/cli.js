@@ -1,67 +1,81 @@
 const meow = require('meow');
+const meowHelp = require('cli-meow-help');
 const { green, yellow, cyan, dim } = require('chalk');
 
-const helpText = `
-    Usage
-      ${green(`npx antonioqfel`)} ${yellow(`[--options]`)} ${cyan(`<commands>`)}
+const flags = {
+    ad: {
+        desc: 'Prints the ad info',
+        type: 'boolean',
+        default: true
+    },
+    // 'no-ad': {
+    //     desc: 'Does not print the ad info',
+    //     type: 'boolean',
+    //     default: false
+    // },
+    bio: {
+        desc: 'Prints the bio info',
+        type: 'boolean',
+        default: true
+    },
+    // 'no-bio': {
+    //     desc: 'Does not print the bio info',
+    //     type: 'boolean',
+    //     default: false
+    // },
+    clear: {
+        desc: 'Clears the console',
+        type: 'boolean',
+        default: true
+    },
+    debug: {
+        desc: 'Prints the debug info',
+        type: 'boolean',
+        default: false,
+        alias: 'd'
+    },
+    minimal: {
+        desc: 'Prints mininimal info',
+        type: 'boolean',
+        default: false,
+        alias: 'm'
+    },
+    social: {
+        desc: 'Prints the social info',
+        type: 'boolean',
+        default: true
+    },
+    // 'no-social': {
+    //     desc: 'Does not print the social info',
+    //     type: 'boolean',
+    //     default: false
+    // },
+    version: {
+        desc: 'Prints CLI version',
+        type: 'boolean',
+        default: false,
+        alias: 'v'
+    }
+};
 
-    Options
-      ${yellow(`--bio`)}          Print the bio info ${dim(`(Default: true)`)}
-      ${yellow(`--no-bio`)}       Don't print the bio info
-      ${yellow(`--social`)}       Print the social info ${dim(`(Default: true)`)}
-      ${yellow(`--no-social`)}    Don't print the social info
-      ${yellow(`--ad`)}           Print the ad info ${dim(`(Default: true)`)}
-      ${yellow(`--no-ad`)}        Don't print the ad info
-      ${yellow(`--clear`)}        Clear the console ${dim(`(Default: true)`)}
-      ${yellow(`--no-clear`)}     Don't clear the console
-      ${yellow(`-m`)}, ${yellow(`--minimal`)}  Print minimal info
-      ${yellow(`-d`)}, ${yellow(`--debug`)}    Print debug info
-      ${yellow(`-v`)}, ${yellow(`--version`)}  Print CLI version
-    
-    Commands
-      ${cyan(`help`)}           Print CLI help info
+const commands = {
+    help: {
+        desc: 'Print CLI help info'
+    }
+};
 
-    Examples
-      ${green(`npx antonioqfel`)} ${yellow(`--no-social`)} 
-      ${green(`npx antonioqfel`)} ${yellow(`--no-ad`)} 
-`;
+const helpText = meowHelp({
+    name: 'npx antonioqfel',
+    flags,
+    commands,
+    defaults: false
+});
 
 const options = {
+    description: false,
     inferType: true,
     hardRejection: false,
-    flags: {
-        bio: {
-            type: 'boolean',
-            default: true
-        },
-        social: {
-            type: 'boolean',
-            default: true
-        },
-        ad: {
-            type: 'boolean',
-            default: true
-        },
-        debug: {
-            type: 'boolean',
-            default: false,
-            alias: 'd'
-        },
-        version: {
-            type: 'boolean',
-            default: false,
-            alias: 'v'
-        },
-        minimal: {
-            type: 'boolean',
-            default: false,
-            alias: 'm'
-        },
-        clear: {
-            type: 'boolean',
-            default: true
-        }
-    }
+    flags
 };
 
 module.exports = meow(helpText, options);

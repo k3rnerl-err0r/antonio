@@ -29,5 +29,4 @@ const flags = cli.flags;
 
     // Debug info if needed
     debug(flags.debug, cli);
-
 })();
